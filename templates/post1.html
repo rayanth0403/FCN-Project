@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block title %}<title>資料表新增(一)</title>{% endblock %}
+{% block content %}
+  <h2>訂單 新增(一)</h2>
+  <form action="." method="POST" name="form1">
+    {% csrf_token %}
+    <table border="1" cellspacing="1" cellpadding="4">
+      <tr>
+        <th>銀行</th><td ><input type="text" id="cbank" name="cbank"/></td>
+      </tr>
+      <tr>
+        <th>投資人</th><td ><input type="text" id="cinvestor" name="cinvestor"/></td>
+      </tr>
+      <tr>
+        <th>交易日</th><td ><input type="date" id="ctradingDay" name="ctradingDay" value=none/></td>
+      </tr>
+      <tr>
+        <th>發行日</th><td ><input type="date" id="creleaseDay" name="creleaseDay" value=none/></td>
+      </tr>
+      <tr>
+        <th>到期日</th><td ><input type="date" id="cexpiryDay" name="cexpiryDay" value=none/></td>
+      </tr>
+      <tr>
+        <th>開始受理贖回日</th><td ><input type="date" id="cransomDay" name="cransomDay" value=none/></td>
+      </tr>
+      <tr>
+        <th>期末評量日</th><td ><input type="date" id="cfinalEvaluation" name="cfinalEvaluation" value=none/></td>
+      </tr>
+      <tr>
+        <th>訂單是否未被KO</th>
+        <td>
+          <input name="corder" type="radio" id="corder1" value="True" checked="checked" />
+          是
+          <input name="corder" type="radio" id="corder2" value="False"/>
+          否
+        </td>
+      </tr>
+      <tr>
+        <th>CND金額</th><td ><input type="number" id="cCDN" name="cCND" step="0.01" value=none/></td>
+      </tr>
+      <tr>
+        <th>USD金額</th><td ><input type="number" id="cUSD" name="cUSD" step="0.01" value=none/></td>
+      </tr>
+      <tr>
+        <th>利率%</th><td ><input type="number" id="crate" name="crate" step="0.01" value=none/></td>
+      </tr>
+      <tr>
+        <th>股票一是否未被KO</th>
+        <td>
+          <input name="cstock1Exist" type="radio" id="cstock1Exist1" value="True" checked="checked" />
+          是
+          <input name="cstock1Exist" type="radio" id="cstock1Exist2" value="False"/>
+          否
+        </td>
+      </tr>
+      <tr>
+        <th>股票一名稱</th><td ><input type="text" id="cstock1" name="cstock1"/></td>
+      </tr>
+      <tr>
+        <th>出場價</th><td ><input type="number" id="cstock1KOPrice" name="cstock1KOPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>交易日股價</th><td ><input type="number" id="cstock1StartPrice" name="cstock1StartPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>轉換價</th><td ><input type="number" id="cstock1TranformPrice" name="cstock1TranformPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>股票二是否未被KO</th>
+        <td>
+          <input name="cstock2Exist" type="radio" id="cstock2Exist1" value="True" checked="checked" />
+          是
+          <input name="cstock2Exist" type="radio" id="cstock2Exist2" value="False"/>
+          否
+        </td>
+      </tr>
+      <tr>
+        <th>股票二名稱</th><td ><input type="text" id="cstock2" name="cstock2"/></td>
+      </tr>
+      <tr>
+        <th>出場價</th><td ><input type="number" id="cstock2KOPrice" name="cstock2KOPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>交易日股價</th><td ><input type="number" id="cstock2StartPrice" name="cstock2StartPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>轉換價</th><td ><input type="number" id="cstock2TranformPrice" name="cstock2TranformPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>股票三是否未被KO</th>
+        <td>
+          <input name="cstock3Exist" type="radio" id="cstock3Exist1" value="True" checked="checked" />
+          是
+          <input name="cstock3Exist" type="radio" id="cstock3Exist2" value="False"/>
+          否
+        </td>
+      </tr>
+      <tr>
+        <th>股票三名稱</th><td ><input type="text" id="cstock3" name="cstock3"/></td>
+      </tr>
+      <tr>
+        <th>出場價</th><td ><input type="number" id="cstock3KOPrice" name="cstock3KOPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>交易日股價</th><td ><input type="number" id="cstock3StartPrice" name="cstock3StartPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>轉換價</th><td ><input type="number" id="cstock3TranformPrice" name="cstock3TranformPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>股票四是否未被KO</th>
+        <td>
+          <input name="cstock4Exist" type="radio" id="cstock4Exist1" value="True" checked="checked" />
+          是
+          <input name="cstock4Exist" type="radio" id="cstock4Exist2" value="False"/>
+          否
+        </td>
+      </tr>
+      <tr>
+        <th>股票四名稱</th><td ><input type="text" id="cstock4" name="cstock4"/></td>
+      </tr>
+      <tr>
+        <th>出場價</th><td ><input type="number" id="cstock4KOPrice" name="cstock4KOPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>交易日股價</th><td ><input type="number" id="cstock4StartPrice" name="cstock4StartPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>轉換價</th><td ><input type="number" id="cstock4TranformPrice" name="cstock4TranformPrice" step="0.0001" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始1</th><td ><input type="date" id="cobservationTime1" name="cobservationTime1" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束1</th><td ><input type="date" id="cobservationTimeEnd1" name="cobservationTimeEnd1" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日1</th><td ><input type="date" id="cdeliveryDate1" name="cdeliveryDate1" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始2</th><td ><input type="date" id="cobservationTime2" name="cobservationTime2" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束2</th><td ><input type="date" id="cobservationTimeEnd2" name="cobservationTimeEnd2" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日2</th><td ><input type="date" id="cdeliveryDate2" name="cdeliveryDate2" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始3</th><td ><input type="date" id="cobservationTime3" name="cobservationTime3" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束3</th><td ><input type="date" id="cobservationTimeEnd3" name="cobservationTimeEnd3" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日3</th><td ><input type="date" id="cdeliveryDate3" name="cdeliveryDate3" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始4</th><td ><input type="date" id="cobservationTime4" name="cobservationTime4" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束4</th><td ><input type="date" id="cobservationTimeEnd4" name="cobservationTimeEnd4" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日4</th><td ><input type="date" id="cdeliveryDate4" name="cdeliveryDate4" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始5</th><td ><input type="date" id="cobservationTime5" name="cobservationTime5" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束5</th><td ><input type="date" id="cobservationTimeEnd5" name="cobservationTimeEnd5" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日5</th><td ><input type="date" id="cdeliveryDate5" name="cdeliveryDate5" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始6</th><td ><input type="date" id="cobservationTime6" name="cobservationTime6" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束6</th><td ><input type="date" id="cobservationTimeEnd6" name="cobservationTimeEnd6" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日6</th><td ><input type="date" id="cdeliveryDate6" name="cdeliveryDate6" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始7</th><td ><input type="date" id="cobservationTime7" name="cobservationTime7" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束7</th><td ><input type="date" id="cobservationTimeEnd7" name="cobservationTimeEnd7" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日7</th><td ><input type="date" id="cdeliveryDate7" name="cdeliveryDate7" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始8</th><td ><input type="date" id="cobservationTime8" name="cobservationTime8" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束8</th><td ><input type="date" id="cobservationTimeEnd8" name="cobservationTimeEnd8" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日8</th><td ><input type="date" id="cdeliveryDate8" name="cdeliveryDate8" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始9</th><td ><input type="date" id="cobservationTime9" name="cobservationTime9" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束9</th><td ><input type="date" id="cobservationTimeEnd9" name="cobservationTimeEnd9" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日9</th><td ><input type="date" id="cdeliveryDate9" name="cdeliveryDate9" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始10</th><td ><input type="date" id="cobservationTime10" name="cobservationTime10" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束10</th><td ><input type="date" id="cobservationTimeEnd10" name="cobservationTimeEnd10" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日10</th><td ><input type="date" id="cdeliveryDate10" name="cdeliveryDate10" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始11</th><td ><input type="date" id="cobservationTime11" name="cobservationTime11" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束11</th><td ><input type="date" id="cobservationTimeEnd11" name="cobservationTimeEnd11" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日11</th><td ><input type="date" id="cdeliveryDate11" name="cdeliveryDate11" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察開始12</th><td ><input type="date" id="cobservationTime12" name="cobservationTime12" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息觀察結束12</th><td ><input type="date" id="cobservationTimeEnd12" name="cobservationTimeEnd12" value=none/></td>
+      </tr>
+      <tr>
+        <th>配息交割日12</th><td ><input type="date" id="cdeliveryDate12" name="cdeliveryDate12" value=none/></td>
+      </tr>
+      <tr>
+        <th colspan="2" align="center">
+          <input type="submit" name="button" id="button" value="送出">
+          <input type="reset" name="button2" id="button2" value="重設"></th>
+      </tr>
+    </table>
+    <span style="color:red">{{message}}</span>
+  </form>
+{% endblock %}

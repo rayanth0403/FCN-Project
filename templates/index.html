@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}<title>顯示所有資料</title>{% endblock %}
+{% block content %}
+<h2 align="left">顯示資料表所有資料&nbsp;&nbsp;
+<a href="/post1/">新增一</a>&nbsp;&nbsp;<a href="/post2/">查詢二</a></h2>
+<form action="." method="POST" name="form1">
+{% csrf_token %}
+<table border="1" cellpadding="0" cellspacing="0">
+	<th>編號</th><th>姓名</th><th>性別</th><th>生日</th>
+	<th>郵件帳號</th><th>電話</th><th>地址</th><th>編輯</th>
+	{% for student in students %}
+		<tr>
+			<td>{{ student.id }} </td>
+			<td>{{ student.cName }} </td>
+			<td>{{ student.cSex}} </td>
+			<td>{{ student.cBirthday }} </td>
+			<td>{{ student.cEmail }} </td>
+			<td>{{ student.cPhone}} </td>
+			<td>{{ student.cAddr }} </td>
+            <td>
+                <a href="/edit/{{student.id}}/" title="編輯一">編輯一</a>	
+				<a href="/edit2/{{student.id}}/load" title="編輯二">編輯二</a>	
+                <a href="/delete/{{student.id}}/" title="刪除">刪除</a>
+            </td>
+		</tr>
+	{% endfor %}
+</table>
+<table border="1" cellpadding="0" cellspacing="0">
+	<th>編號</th><th>銀行</th><th>投資人</th><th>交易日</th>
+	<th>發行日</th><th>到期日</th><th>開始受理贖回日</th><th>期末評價日</th>
+	<th>是否未被KO</th><th>貨幣</th><th>金額</th><th>利率</th>
+	<th>股票一是否未被KO</th><th>股票一</th><th>股票一交易日收盤價</th><th>股票一KO金額</th><th>股票一轉換價</th>
+	<th>股票二是否未被KO</th><th>股票二</th><th>股票二交易日收盤價</th><th>股票二KO金額</th><th>股票二轉換價</th>
+	<th>股票三是否未被KO</th><th>股票三</th><th>股票三交易日收盤價</th><th>股票三KO金額</th><th>股票三轉換價</th>
+	<th>股票四是否未被KO</th><th>股票四</th><th>股票四交易日收盤價</th><th>股票四KO金額</th><th>股票四轉換價</th>
+	{% for ord in FCNs %}
+		<tr>
+			<td>{{ ord.id }} </td>
+			<td>{{ ord.cbank }} </td>
+			<td>{{ ord.cinvestor}} </td>
+			<td>{{ ord.ctradingDay }} </td>
+			<td>{{ ord.creleaseDay }} </td>
+			<td>{{ ord.cexpiryDay}} </td>
+			<td>{{ ord.cransomDay }} </td>
+			<td>{{ ord.cfinalEvaluation }} </td>
+			<td>{{ ord.corder }} </td>
+			<td>{{ ord.cCND }} </td>
+			<td>{{ ord.cUSD}} </td>
+			<td>{{ ord.crate }} </td>
+			<td>{{ ord.cstock1Exist }} </td>
+			<td>{{ ord.cstock1 }} </td>
+			<td>{{ ord.cstock1KOPrice}} </td>
+			<td>{{ ord.cstock1StartPrice}} </td>
+			<td>{{ ord.cstock1TranformPrice }} </td>
+			<td>{{ ord.cstock2Exist }} </td>
+			<td>{{ ord.cstock2 }} </td>
+			<td>{{ ord.cstock2KOPrice}} </td>
+			<td>{{ ord.cstock2StartPrice}} </td>
+			<td>{{ ord.cstock2TranformPrice }} </td>
+			<td>{{ ord.cstock3Exist }} </td>
+			<td>{{ ord.cstock3 }} </td>
+			<td>{{ ord.cstock3KOPrice}} </td>
+			<td>{{ ord.cstock3StartPrice}} </td>
+			<td>{{ ord.cstock3TranformPrice }} </td>
+			<td>{{ ord.cstock4Exist }} </td>
+			<td>{{ ord.cstock4 }} </td>
+			<td>{{ ord.cstock4KOPrice}} </td>
+			<td>{{ ord.cstock4StartPrice}} </td>
+			<td>{{ ord.cstock4TranformPrice }} </td>
+			<td>
+                <a href="/listone/{{ord.id}}/" title="編輯一">編輯一</a>	
+				<a href="/edit2/{{student.id}}/load" title="編輯二">編輯二</a>	
+                <a href="/delete/{{student.id}}/" title="刪除">刪除</a>
+            </td>
+		</tr>
+	{% endfor %}
+</table>
+</form>
+{% endblock %}	

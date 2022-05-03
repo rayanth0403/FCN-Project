@@ -1,0 +1,29 @@
+{% extends 'base1.html' %}
+ 
+{% block content %}
+ 
+<form method='POST'>
+	{% csrf_token %}
+	銀行：{{ fcnFilter.form.cbank }}
+	投資人：{{ fcnFilter.form.cinvestor }}
+	價格：{{ fcnFilter.form.cCND }}
+	<input type="submit" class="btn btn-primary" value="查詢" />
+</form>
+<br />
+<table class="table">
+	<thead>
+		<th>銀行</th>
+		<th>投資人</th>
+		<th>價格</th>
+	</thead>
+	<tbody>
+		{% for fcn in fcnFilter.qs %}
+		<tr>
+			<td>{{ fcn.cbank }}</td>
+			<td>{{ fcn.cinvestor }}</td>
+			<td>{{ fcn.cCND }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock  %}
